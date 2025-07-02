@@ -10,12 +10,12 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/kistars/geth-task/constant"
+	"github.com/kistars/geth-task/constants"
 )
 
 func ExecTask1() {
 	// 生成客户端
-	client, err := ethclient.Dial(constant.SepoliaAddr)
+	client, err := ethclient.Dial(constants.SepoliaAddr)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -33,7 +33,7 @@ func ExecTask1() {
 	fmt.Println("Block number of transactions =", len(block.Transactions()))
 
 	// 发送交易
-	privateKey, err := crypto.HexToECDSA(constant.SenderPrivateKey)
+	privateKey, err := crypto.HexToECDSA(constants.SenderPrivateKey)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -57,7 +57,7 @@ func ExecTask1() {
 	amount := big.NewInt(1000000000000000) // in wei (0.001 eth), 1e18
 
 	// 接收方地址
-	toAddress := common.HexToAddress(constant.ReceiverAddr)
+	toAddress := common.HexToAddress(constants.ReceiverAddr)
 	tx := types.NewTransaction(nonce, toAddress, amount, gasLimit, gasPrice, []byte{})
 
 	// chainID
