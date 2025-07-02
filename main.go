@@ -1,9 +1,13 @@
 package main
 
 import (
-	"github.com/kistars/geth-task/task1"
+	"log"
+
+	"github.com/kistars/geth-task/task2"
 )
 
 func main() {
-	task1.ExecTask1()
+	// 设置log flags，添加Lshortfile或Llongfile
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	task2.ExecTask2()
 }
